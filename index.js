@@ -12,9 +12,7 @@ import {
 
 mongoose.set("strictQuery", true);
 mongoose
-	.connect(
-		"mongodb+srv://Marat:Qwerty123@cluster0.9twrsbo.mongodb.net/blog?retryWrites=true&w=majority"
-	)
+	.connect(process.env.MONGODB_URI)
 	.then(() => console.log("MongoDB OK"))
 	.catch((err) => console.log("MongoDB ERROR", err));
 
@@ -71,7 +69,7 @@ app.post(
 app.delete("/posts/:id", checkAuth, PostController.remove);
 app.patch("/posts/:id", checkAuth, postCreateValidation, PostController.update);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
 	if (err) {
 		console.log(err);
 	}
