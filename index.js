@@ -12,9 +12,7 @@ import {
 
 mongoose.set("strictQuery", true);
 mongoose
-	.connect(
-		"mongodb+srv://Marat:Qwerty123@cluster0.9twrsbo.mongodb.net/blog?retryWrites=true&w=majority"
-	)
+	.connect(mongoUri)
 	.then(() => console.log("MongoDB OK"))
 	.catch((err) => console.log("MongoDB ERROR", err));
 
