@@ -12,7 +12,7 @@ import {
 
 mongoose.set("strictQuery", true);
 mongoose
-	.connect(mongoUri)
+	.connect(process.env.MONGODB_URI)
 	.then(() => console.log("MongoDB OK"))
 	.catch((err) => console.log("MongoDB ERROR", err));
 
